@@ -1,0 +1,65 @@
+html {
+  background-color: antiquewhite;
+}
+
+.red{
+  color: red;
+}
+
+h1{
+  text-align: center;
+  background-color:gray;
+}
+
+h2{
+  text-align: center;
+  color: #FCA205;
+}
+
+h3{
+  color : green;
+}
+
+body {
+  padding-left: 15px;
+}
+
+pre{
+  font-size: larger;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  background-color: #45a1ff;
+  color: #fff;
+}
+
+.copyright {
+  position: absolute;
+  right: 0px;
+  width: 150px;
+}
+
+.description {
+  font-size: smaller;
+  text-align: center;
+}
+
+h3.square{
+  border-style:solid;
+  border-width:5px;
+  background-color: rgb(241, 231, 231);
+}
+
+ol.square{
+  border-style:solid;
+  border-width:5px;
+  background-color: aquamarine;
+}
+
+li{
+  font-size: larger;
+}
