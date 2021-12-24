@@ -1,6 +1,19 @@
 import { useEffect, useState } from "react";
 import { fetchImages } from "./api";
 
+let isDouble;
+
+function setUserName() {
+  let num = prompt('set the number of pictures(one/two)');
+  localStorage.setItem('name', num);
+  if(num == "one" || num == "o"){
+    isDouble = false;
+  }else if(num == "two" || num == "t"){
+    isDouble = true;
+  }
+}
+
+
 function Introduction(){
   return (
     <p className="hero is-light has-text-centered">このサイトは日本大学文理学部情報科学科Webプログラミングの演習課題である.</p>
@@ -27,7 +40,7 @@ function Form(props) {
             </div>
           </div>
           <div className="control">
-            <button type="submit" className="button is-blue">
+            <button type="submit" className="button is-black">
               Reload
             </button>
           </div>
@@ -49,6 +62,8 @@ function Header() {
     </header>
   );
 }
+
+
 
 function Image(props) {
   return (
@@ -86,11 +101,12 @@ function Gallery(props) {
 
 function Main() {
   const [urls, setUrls] = useState(null);
-  useEffect(() =>{
-    fetchImages("rice").then((urls) => {
-      setUrls(urls);
-    });
-  }, []);
+    useEffect(() =>{
+      fetchImages("rice").then((urls) => {
+        setUrls(urls);
+      });
+    }, []);
+
   function reloadImages(type) {
     fetchImages(type).then((urls) => {
       setUrls(urls);
@@ -111,6 +127,7 @@ function Main() {
     </main>
   );
 }
+
 
 function Footer() {
   return (
@@ -139,15 +156,29 @@ function Lesence(){
 }
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <Introduction />
-      <Main />
-      <Footer />
-      <Lesence />
-    </div>
-  );
+  setUserName();
+  if(!isDouble){
+    return (
+      <div>
+        <Header />
+        <Introduction />
+        <Main />
+        <Footer />
+        <Lesence />
+      </div>
+    );
+  }else{
+    return (
+      <div>
+        <Header />
+        <Introduction />
+        <Main />
+        <Main />
+        <Footer />
+        <Lesence />
+      </div>
+    );
+  }
 }
 
 export default App;
